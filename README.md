@@ -12,4 +12,8 @@ Contributions of Team 4 for the sustainable programming course of the SSC
 
 ## Unit 2
 Imperative, Procedural,
-Programming Paradigm 
+Programming Paradigm
+
+### Sketch for planned functions
+You can find the first sketch for the functions
+[here](src/img/function_plan.pdf)
