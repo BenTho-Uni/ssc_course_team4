@@ -11,3 +11,5 @@ Contributions of Team 4 for the sustainable programming course of the SSC
 |Ben | Statistical Analysis Task 5, Numerical Analysis Task 1+2|
 
 ## Unit 2
+Imperative, Procedural,
+Programming Paradigm 
