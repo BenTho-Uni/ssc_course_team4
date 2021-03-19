@@ -19,10 +19,13 @@ def expect_plot(filedir, filename, threshv):
     Return: relplots of the relevant data
     """
     df_expec = io.read_in_df(filedir, filename)
-    df_expec.drop(df_expec.var()[df_expec.var() < threshv].index.values, axis=1)
-    sn.relplot(df_expec, kind='line')
+    df_expec2=df_expec.drop(df_expec.var()[df_expec.var() < threshv].index.values, axis=1)
+    sn.relplot(x='time', y='value', hue='variable', data=pd.melt(df_expec2, ['time']), kind='line')
     plt.show()
     return
+
+#example test run:
+#expect_plot('~/ssc_course_team4/data/', 'expec.t', 0.00001)
 
 def npop_plot(filedir, filename, threshv):
     """ reads in dataframe file, drops data with variance below threshold and plots relevant data
@@ -40,6 +43,7 @@ def npop_plot(filedir, filename, threshv):
     plt.show()
     return
 
+#example test run:
 #npop_plot('~/ssc_course_team4/data/', 'npop.t', 0.00001)
 
 def npop_corr(filedir, filename, threshv):
@@ -65,4 +69,5 @@ def npop_corr(filedir, filename, threshv):
         print(final_correlation, file=f)
     return
 
-npop_corr('~/ssc_course_team4/data/', 'npop.t', 0.000001)
+#example test run:
+#npop_corr('~/ssc_course_team4/data/', 'npop.t', 0.000001)
