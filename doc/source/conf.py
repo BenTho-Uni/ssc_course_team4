@@ -12,9 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'src',
-                'ssc_course_team4')))
-
+sys.path.insert(0, os.path.abspath(os.path.join('..', 'src', 'ssc_course_team4')))
 
 # -- Project information -----------------------------------------------------
 
