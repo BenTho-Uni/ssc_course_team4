@@ -17,3 +17,8 @@ Programming Paradigm
 ### Sketch for planned functions
 You can find the first sketch for the functions
 [here](src/img/function_plan.pdf)
+
+## ToDo
+- [ ] Decide if better seperation of output functions in numerical.py and
+      statistical.py worth
+- [ ] Add inline commentary

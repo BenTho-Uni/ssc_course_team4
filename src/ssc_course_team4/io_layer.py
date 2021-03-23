@@ -4,12 +4,24 @@ import matplotlib.pyplot as plt
 
 
 def read_in_df(filepath):
+    """Reads input into pandas dataframe.
+    Args:
+        filepath (str): file location
+
+    Returns:
+        pandas data frame: data frame of input."""
     print('Reading in file {} - pandas'.format(filepath))
     data = pd.read_csv(filepath, r'\s+')
     return data
 
 
 def read_in_np(filepath):
+    """Reads input into numpy array.
+    Args:
+        filepath (str): file location
+
+    Returns:
+        numpy array: array of input."""
     print('Reading in file {} - numpy'.format(filepath))
     data = np.loadtxt(filepath, skiprows=1)
     return data
