@@ -70,6 +70,36 @@ def autocorr(filepath_in):
 
     return time, corr
 
+def plot_autocorr(fielpath_in, filepath_out):
+    """Builds the autocorrelation function as an array with a separated time
+    array and plots the correlation function against time.
+
+    Args:
+        filepath_in (str): path to input file
+        filename (str): directory to input from filedir
+        (columns must be separated by multiple spaces)
+
+    Returns:
+        autocorr_plot.pdf, but not as return"""
+    time, corr = autocorr(fielpath_in)
+    imag = np.imag(corr)
+    real = np.real(corr)
+    absolute = np.absolute(corr)
+
+    plt.figure(1)
+    fig_real, = plt.plot(time, real)
+    fig_imag, = plt.plot(time, imag)
+    fig_absolute, = plt.plot(time, absolute)
+    plt.xlabel("time")
+    plt.ylabel("overlap")
+    plt.legend([fig_real, fig_imag, fig_absolute],
+               ["real part", "imaginary part", "absolute value"],
+               loc="center right")
+    plt.savefig(filepath_out+"autocorr_plot.pdf")
+    plt.show()
+
+    return
+
 
 def plot_autocorr_fft(filepath_in, filepath_out):
     """Builds the Fourier transform of the autocorrelation function as an
