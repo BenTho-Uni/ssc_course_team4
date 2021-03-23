@@ -4,6 +4,7 @@ import filecmp
 import io
 import statistical as st  # Find out how to do this inside test folder
 
+
 class test_npop_corr (unittest.TestCase):
     def test_npop_corr(self):
         # prepare fielpaths to input and reference
