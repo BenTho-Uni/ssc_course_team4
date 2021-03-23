@@ -22,3 +22,10 @@ You can find the first sketch for the functions
 - [ ] Decide if better seperation of output functions in numerical.py and
       statistical.py worth
 - [ ] Add inline commentary
+- [ ] find out how to move test_statistical.py to tests folder without broken
+      import call
+- [ ] test_statistical.py: why filecmp not working?
+
+## Requirements
+These modules are written in python3, and require the following libs:
+pandas, numpy, seaborn, matplotlib, pytest
