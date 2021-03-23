@@ -76,7 +76,7 @@ def plot_autocorr(fielpath_in, filepath_out):
 
     Args:
         filepath_in (str): path to input file
-        filename (str): directory to input from filedir
+        filepath_out (str): path where the output should be placed
         (columns must be separated by multiple spaces)
 
     Returns:
