@@ -1,0 +1,7 @@
+python 3
+python 3 libraries:
+      pandas
+      numpy
+      seaborn
+      pytest
+      matplotlib

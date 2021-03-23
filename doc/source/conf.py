@@ -12,8 +12,13 @@
 #
 import os
 import sys
+<<<<<<< HEAD
 sys.path.insert(0, os.path.abspath('../src/ssc_course_team4'))
 
+=======
+sys.path.insert(0, os.path.abspath(
+                os.path.join('..', '..', 'src', 'ssc_course_team4')))
+>>>>>>> origin/ben
 
 # -- Project information -----------------------------------------------------
 
