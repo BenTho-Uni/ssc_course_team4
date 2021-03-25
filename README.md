@@ -18,6 +18,9 @@ Programming Paradigm
 You can find the first sketch for the functions
 [here](src/img/function_plan.pdf)
 
+## Unit 3
+Link to documentation: https://ssc-course-team4.readthedocs.io/en/latest/py-modindex.html
+
 ## ToDo
 - [ ] Decide if better seperation of output functions in numerical.py and
       statistical.py worth
@@ -25,6 +28,7 @@ You can find the first sketch for the functions
 - [ ] find out how to move test_statistical.py to tests folder without broken
       import call
 - [ ] test_statistical.py: why filecmp not working?
+- [ ] documentation index not working with readthedocs.io
 
 ## Requirements
 These modules are written in python3, and require the following libs:

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import io_layer as io
+import src.ssc_course_team4.io_layer as io
 
 
 def efield_fft(filepath_in, filepath_out, thresh):
@@ -76,7 +76,7 @@ def plot_autocorr(fielpath_in, filepath_out):
 
     Args:
         filepath_in (str): path to input file
-        filepath_out (str): path where the output should be placed
+        filepath_out (str): path to where the output file should be placed
         (columns must be separated by multiple spaces)
 
     Returns:
