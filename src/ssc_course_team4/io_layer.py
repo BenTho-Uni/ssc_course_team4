@@ -58,15 +58,14 @@ def efield_plot(filepath_out, data):
     return
 
 
-def efield_fft_plot(filepath_out, data):
+def efield_fft_plot(filepath_out, efield_np_fft_data, efield_np_fft_freq):
     """Plots the Fourier-transformed electric efield_df.
 
     Args:
         filepath_out (string): The realtive output file filepath.
         data (numpy array): The data holding object.
     Returns:"""
-    efield_np_fft_data = np.fft.rfft(data[1])
-    efield_np_fft_freq = np.fft.rfftfreq(len(data[0]))
+
     plt.plot(efield_np_fft_freq, abs(efield_np_fft_data**2))
     plt.savefig(filepath_out+'efield_fft.pdf')
     plt.close()

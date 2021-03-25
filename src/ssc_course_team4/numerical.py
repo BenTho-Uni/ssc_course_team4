@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import src.ssc_course_team4.io_layer as io
 
 
-def efield_fft(filepath_in, filepath_out, thresh):
+def efield_fft(efield, thresh):
     """Process and plots the electric field data and its Fourier-transformed
     function.
 
@@ -17,10 +17,6 @@ def efield_fft(filepath_in, filepath_out, thresh):
 
     Returns:
     """
-#   Read in efield data
-    efield = io.read_in_df(filepath_in)
-#   Plot efield per axis
-    io.efield_plot(filepath_out, efield)
 #   Drop those exis below threshhold
     efield_df = pd.DataFrame(efield)
     efield_df = efield_df.drop(efield_df.var()
@@ -28,9 +24,10 @@ def efield_fft(filepath_in, filepath_out, thresh):
 #   Convert to numpy array for easier Fourier
     efield_np = efield_df.to_numpy()
     efield_np = efield_np.T
-#   Plot fft
-    io.efield_fft_plot(filepath_out, efield_np)
-    return
+    efield_np_fft_data = np.fft.rfft(efield_np[1])
+    efield_np_fft_freq = np.fft.rfftfreq(len(efield_np[0]))
+
+    return efield_np_fft_data, efield_np_fft_freq
 
 
 def autocorr(filepath_in):

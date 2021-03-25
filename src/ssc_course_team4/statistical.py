@@ -44,7 +44,7 @@ def npop_plot(filepath_in, threshv):
     return
 
 
-def npop_corr(filepath_in, filepath_out, threshv):
+def npop_corr(df_npop, threshv):
     """ Reads in dataframe file, drops data with variance below threshold and
         redundant entries, sorts for absolute correlation values and prints it
         to npop_corr.cvs
@@ -55,7 +55,6 @@ def npop_corr(filepath_in, filepath_out, threshv):
             thresv (double): desired threshold value
     Return: npop_corr.cvs file with sorted, non-redundant correlation values
     """
-    df_npop = io.read_in_df(filepath_in)
     df_npop2_short = df_npop.drop(columns='time')  # ToDo: Added, check if ok
     df_npop2_short = df_npop2_short.drop(
                 df_npop.var()[df_npop.var() < threshv].index.values, axis=1)
@@ -67,9 +66,8 @@ def npop_corr(filepath_in, filepath_out, threshv):
     final_correlation = df_npop2_short.corr().unstack()
     final_correlation = final_correlation.drop(labels=value_list).sort_values(
                                 ascending=False, key=lambda col: col.abs())
-    with open(filepath_out+'npop_corr.cvs', 'w') as f:
-        print(final_correlation, file=f)
-    return
+
+    return final_correlation
 
 
 def euclid_dis(filepath_in, filepath_out, thresh):
@@ -99,4 +97,4 @@ def euclid_dis(filepath_in, filepath_out, thresh):
 
 #   Output result as pdf
     io.euclid_dis_plot(filepath_out, result)
-    return
+    return result
