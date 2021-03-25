@@ -99,4 +99,4 @@ def euclid_dis(filepath_in, filepath_out, thresh):
 
 #   Output result as pdf
     io.euclid_dis_plot(filepath_out, result)
-    return
+    return result

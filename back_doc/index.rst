@@ -7,8 +7,11 @@ Welcome to autocorr_numerical's documentation!
 ==============================================
 
 .. toctree::
-   :maxdepth: 2 
+   :maxdepth: 2
    :caption: Contents:
+
+   README.md
+   modules
 
 
 Indices and tables
