@@ -76,7 +76,7 @@ def npop_corr(filedir, filename, threshv):
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import io_layer as io
+import src.ssc_course_team4.io_layer as io
 
 
 def efield_fft(filepath_in, filepath_out, thresh):
@@ -144,6 +144,36 @@ def autocorr(filepath_in):
     corr = np.array(corr_)
 
     return time, corr
+
+def plot_autocorr(fielpath_in, filepath_out):
+    """Builds the autocorrelation function as an array with a separated time
+    array and plots the correlation function against time.
+
+    Args:
+        filepath_in (str): path to input file
+        filepath_out (str): path to where the output file should be placed
+        (columns must be separated by multiple spaces)
+
+    Returns:
+        autocorr_plot.pdf, but not as return"""
+    time, corr = autocorr(fielpath_in)
+    imag = np.imag(corr)
+    real = np.real(corr)
+    absolute = np.absolute(corr)
+
+    plt.figure(1)
+    fig_real, = plt.plot(time, real)
+    fig_imag, = plt.plot(time, imag)
+    fig_absolute, = plt.plot(time, absolute)
+    plt.xlabel("time")
+    plt.ylabel("overlap")
+    plt.legend([fig_real, fig_imag, fig_absolute],
+               ["real part", "imaginary part", "absolute value"],
+               loc="center right")
+    plt.savefig(filepath_out+"autocorr_plot.pdf")
+    plt.show()
+
+    return
 
 
 def plot_autocorr_fft(filepath_in, filepath_out):

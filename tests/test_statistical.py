@@ -1,15 +1,18 @@
 import unittest
 import os
 import filecmp
+import sys
 import io
-import statistical as st  # Find out how to do this inside test folder
+sys.path.insert(0, '..')
+import src.ssc_course_team4.statistical as st  # Find out how to do this inside test folder
+import src.ssc_course_team4.io_layer
 
 
 class test_npop_corr (unittest.TestCase):
     def test_npop_corr(self):
         # prepare fielpaths to input and reference
-        filepath_in = os.path.join('..', '..', 'data', 'npop.t')
-        filepath_ref = os.path.join('tests', 'data', 'ref_npop_corr.cvs')
+        filepath_in = os.path.join('..', 'data', 'npop.t')
+        filepath_ref = os.path.join('data', 'ref_npop_corr.cvs')
 
         # run function to test
         st.npop_corr(filepath_in, "", 1e-05)
