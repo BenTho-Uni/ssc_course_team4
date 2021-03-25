@@ -53,8 +53,10 @@ def autocorr(filepath_in):
 
     new_overlap = np.delete(overlap, 0, axis=1)
 
-    index_real = [x for x in range(0, dim-1) if x % 2 == 0]
-    index_complex = [x for x in range(0, dim-1) if not x % 2 == 0]
+    dim2 = len(new_overlap[0])
+
+    index_real = [x for x in range(0, dim2) if x % 2 == 0]
+    index_complex = [x for x in range(0, dim2) if not x % 2 == 0]
 
     real_arr = new_overlap[:, index_real]
     complex_arr = new_overlap[:, index_complex]
