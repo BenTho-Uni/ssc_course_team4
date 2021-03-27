@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 def read_in_df(filepath):
     """Reads input into pandas dataframe.
+
     Args:
         filepath (str): file location
 
@@ -17,6 +18,7 @@ def read_in_df(filepath):
 
 def read_in_np(filepath):
     """Reads input into numpy array.
+    
     Args:
         filepath (str): file location
 

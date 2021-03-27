@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd
 import sys
 sys.path.insert(0, '..')
-import src.ssc_course_team4.statistical as st
-import src.ssc_course_team4.io_layer as io
+import ssc_course_team4.statistical as st
+import ssc_course_team4.io_layer as io
 
 
 def test_euclid_dis ():

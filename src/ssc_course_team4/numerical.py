@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import src.ssc_course_team4.io_layer as io
+import ssc_course_team4.io_layer as io
 
 
 def efield_fft(efield, thresh):

@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import src.ssc_course_team4.io_layer as io
+import ssc_course_team4.io_layer as io
 import seaborn as sn
 import matplotlib.pyplot as plt
 
@@ -73,13 +73,15 @@ def npop_corr(df_npop, threshv):
 def euclid_dis(table, thresh):
     """Calculates the Euclidean distance for two vektors.
 
-    Args:
-        table (numpy array): Numpy array of the vektor data (i,j, r(x), v(x),
-                            r(y), v(y), r(z), v(z), skiprow=1).
-        thresh (double integer): The threshhold value that the data should be
-            checked against.
+    :param table: Numpy array of the vektor data (i,j, r(x), v(x),
+                            r(y), v(y), r(z), v(z), skiprow=1)
+    :type table: numpy array
+    :param thresh: The threshhold value that the data should be
+            checked against
+    :type thresh: double int
 
-    Returns:
+    :return: Results for all three axis
+    :rtype: list
     """
 #   Remove NaN and remove that column
     np.nan_to_num(table, False, 0)
