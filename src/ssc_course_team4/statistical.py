@@ -70,21 +70,17 @@ def npop_corr(df_npop, threshv):
     return final_correlation
 
 
-def euclid_dis(filepath_in, filepath_out, thresh):
+def euclid_dis(table, thresh):
     """Calculates the Euclidean distance for two vektors.
 
     Args:
-        filepath_in (string): The relative file path to the data file.
-        filepath_out (string): The relative file path where the output should
-        be placed.
+        table (numpy array): Numpy array of the vektor data (i,j, r(x), v(x),
+                            r(y), v(y), r(z), v(z), skiprow=1).
         thresh (double integer): The threshhold value that the data should be
             checked against.
 
     Returns:
     """
-#   Read data into np array
-    table = io.read_in_np(filepath_in)
-
 #   Remove NaN and remove that column
     np.nan_to_num(table, False, 0)
     table = np.delete(table, 0, 0)
@@ -95,6 +91,4 @@ def euclid_dis(filepath_in, filepath_out, thresh):
     result_z = np.sqrt(np.sum((table[:, 6]-table[:, 7])**2))
     result = result_x, result_y, result_z
 
-#   Output result as pdf
-    io.euclid_dis_plot(filepath_out, result)
     return result

@@ -9,9 +9,7 @@ def efield_fft(efield, thresh):
     function.
 
     Args:
-        filepath_in (string): The relative file path to the data file.
-        filepath_out (string): The relative file path where the output should
-        be placed.
+        efield (DataFrame): The DataFrame file (time, x, y, z columns).
         thresh (double integer): The threshhold value that the data should be
             checked against.
 

@@ -1,28 +1,19 @@
-import unittest
-import os
-import filecmp
+import pytest
+import numpy as np
+import pandas as pd
 import sys
-import io
 sys.path.insert(0, '..')
-import src.ssc_course_team4.statistical as st  # Find out how to do this inside test folder
-import src.ssc_course_team4.io_layer
+import src.ssc_course_team4.statistical as st
+import src.ssc_course_team4.io_layer as io
 
 
-class test_npop_corr (unittest.TestCase):
-    def test_npop_corr(self):
-        # prepare fielpaths to input and reference
-        filepath_in = os.path.join('..', 'data', 'npop.t')
-        filepath_ref = os.path.join('data', 'ref_npop_corr.cvs')
+def test_euclid_dis ():
+    """ Test Euclidean distance through statistical.euclid_dis()."""
+    # Call function to test
+    test_result = st.euclid_dis(io.read_in_np("data/ref_euclid_dis_data.dat"), 1e-5)
 
-        # run function to test
-        st.npop_corr(filepath_in, "", 1e-05)
+    # read in reference result
+    ref_result = io.read_in_np("data/ref_euclid_dis_result.dat")
 
-        # check if both files are the same
-        # ToDo: why filecmp not working? If works, how to delete after fail
-        # self.assertTrue(filecmp.cmp(filepath_in, filepath_ref, True), "The output file differs from reference.")
-        self.assertListEqual(list(io.open('npop_corr.cvs')),
-                            list(io.open(filepath_ref)))
-
-        # clean up
-        os.remove('npop_corr.cvs')
-        return
+    # compare both results
+    assert np.array_equal(test_result, ref_result)
