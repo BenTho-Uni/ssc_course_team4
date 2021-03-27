@@ -10,6 +10,7 @@ Welcome to SSC Course Team4's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   README.md
    modules
 
 
