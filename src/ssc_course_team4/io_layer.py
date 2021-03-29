@@ -18,7 +18,7 @@ def read_in_df(filepath):
 
 def read_in_np(filepath):
     """Reads input into numpy array.
-    
+
     Args:
         filepath (str): file location
 
