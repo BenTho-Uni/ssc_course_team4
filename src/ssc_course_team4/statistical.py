@@ -17,9 +17,9 @@ def expect_plot(filepath_in, threshv):
     """
     df_expec = io.read_in_df(filepath_in)
     df_expec2 = df_expec.drop(df_expec.var()
-                            [df_expec.var() < threshv].index.values, axis=1)
+                              [df_expec.var() < threshv].index.values, axis=1)
     sn.relplot(x='time', y='value', hue='variable',
-                data=pd.melt(df_expec2, ['time']), kind='line')
+               data=pd.melt(df_expec2, ['time']), kind='line')
     plt.show()
     return
 

@@ -18,7 +18,7 @@ def efield_fft(efield, thresh):
 #   Drop those exis below threshhold
     efield_df = pd.DataFrame(efield)
     efield_df = efield_df.drop(efield_df.var()
-                    [efield_df.var() < thresh].index.values, axis=1)
+                               [efield_df.var() < thresh].index.values, axis=1)
 #   Convert to numpy array for easier Fourier
     efield_np = efield_df.to_numpy()
     efield_np = efield_np.T
@@ -66,6 +66,7 @@ def autocorr(filepath_in):
     corr = np.array(corr_)
 
     return time, corr
+
 
 def plot_autocorr(fielpath_in, filepath_out):
     """Builds the autocorrelation function as an array with a separated time
