@@ -1,8 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
-  
-# Controls when the action will run. 
+
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, macos-10.15, windows-2019]
+        os: [ubuntu-18.04, windows-2019]
         python-version: [3.7, 3.8]
     steps:
     - name: Set up Python ${{ matrix.python-version }}
