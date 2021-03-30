@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import math
 import os
 import ssc_course_team4.numerical as nm
 
@@ -14,7 +13,7 @@ def test_efield_fft():
     array_y = np.zeros(11)
     array_z = np.zeros(11)
     for i in range(0, 11):
-        array_y[i] = math.sin(2*array_time[i]*np.pi)
+        array_y[i] = np.sin(2*array_time[i]*np.pi)
 
     # create DataFrame from these arrays
     test_df = pd.DataFrame(np.array([array_time, array_x, array_y,
