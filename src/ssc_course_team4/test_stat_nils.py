@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import sys
 sys.path.insert(0, '..')
-import ssc_course_team4.statistical as sl
+import statistical as sl
 
 #import sys
 #sys.path.insert(0, '..')
@@ -33,7 +33,7 @@ class build_df:
         return self.data
 
 
-#@pytest.fixture
+@pytest.fixture
 #def test_df_npop():
 #    obj = build_df(10)
 #    return obj.init_df()
@@ -41,16 +41,15 @@ class build_df:
 
 # print(test_df_npop())
 def get_df():
-    obj = build_df('./test/test_df.csv')
+    obj = build_df('./tests/test_df_nils.csv')
     data = obj.read_df()
     return data
 
-
-#threshv = 0
+threshv = 0
 
 
 def test_npop_corr(get_df):
-    corrmat = sl.npop_corr(get_df)
+    corrmat = sl.npop_corr(, 'get_df.out',threshv)
     corrmat = corrmat.dropna().round(decimals=6)
     d = [0.832628, 0.228204, 0.136257]
     ind = pd.MultiIndex.from_tuples([
