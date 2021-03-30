@@ -8,7 +8,7 @@ def test_efield_fft():
     """Test Function for numerical.efield_fft(), checks sinus wave function
     against reference file in /data."""
     # generate sinus function along y axis
-    array_time = [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+    array_time = [0.1, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     array_x = np.zeros(11)
     array_y = np.zeros(11)
     array_z = np.zeros(11)
