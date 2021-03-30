@@ -23,9 +23,9 @@ def test_efield_fft():
                            columns=['time', 'x', 'y', 'z'])
 
     # load reference from file
-    ref_data = np.loadtxt("tests/data/efield_fft_data_ref.csv",
-                          dtype=np.complex)
-    ref_freq = np.loadtxt("tests/data/efield_fft_freq_ref.csv")
+    ref_data = np.loadtxt("ssc_course_team4/tests/data/efield_fft_data_ref.csv",
+                          dtype=complex)
+    ref_freq = np.loadtxt("ssc_course_team4/tests/data/efield_fft_freq_ref.csv")
 
     # test function to generate data
     test_data, test_freq = nm.efield_fft(test_df, 1e-5)
