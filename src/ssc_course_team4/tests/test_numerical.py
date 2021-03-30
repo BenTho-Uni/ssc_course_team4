@@ -1,4 +1,3 @@
-import pytest
 import numpy as np
 import pandas as pd
 import math
@@ -23,9 +22,11 @@ def test_efield_fft():
                            columns=['time', 'x', 'y', 'z'])
 
     # load reference from file
-    ref_data = np.loadtxt("ssc_course_team4/tests/data/efield_fft_data_ref.csv",
+    filepath = "ssc_course_team4/tests/data/efield_fft_data_ref.csv"
+    ref_data = np.loadtxt(filepath,
                           dtype=complex)
-    ref_freq = np.loadtxt("ssc_course_team4/tests/data/efield_fft_freq_ref.csv")
+    filepath = "ssc_course_team4/tests/data/efield_fft_freq_ref.csv"
+    ref_freq = np.loadtxt(filepath)
 
     # test function to generate data
     test_data, test_freq = nm.efield_fft(test_df, 1e-5)
