@@ -67,10 +67,9 @@ def npop_corr(filepath_in, filepath_out, threshv):
     final_correlation = df_npop2_short.corr().unstack()
     final_correlation = final_correlation.drop(labels=value_list).sort_values(
                                 ascending=False, key=lambda col: col.abs())
-    with open(filepath_out+'npop_corr.cvs', 'w') as f:
-        print(final_correlation, file=f)
-    return
-
+#   with open(filepath_out+'npop_corr.cvs', 'w') as f:
+#   print(final_correlation, file=f)
+    return final_correlation
 
 def euclid_dis(filepath_in, filepath_out, thresh):
     """Calculates the Euclidean distance for two vektors.
