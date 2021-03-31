@@ -31,8 +31,10 @@ def test_efield_fft():
     test_data, test_freq = nm.efield_fft(test_df, 1e-5)
 
     # compare arrays
-    assert np.array_equal(test_data, ref_data)
-    assert np.array_equal(test_freq, ref_freq)
+    # assert np.array_equal(test_data, ref_data)
+    assert np.allclose(test_data, ref_data, atol=1e-08)
+    # assert np.array_equal(test_freq, ref_freq)
+    assert np.allclose(test_freq, ref_freq, atol=1e-08)
 
 
 def time_arr(time_dim):
