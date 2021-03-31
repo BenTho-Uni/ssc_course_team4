@@ -14,4 +14,4 @@ def test_euclid_dis():
     ref_result = io.read_in_np(filepath)
 
     # compare both results
-    assert np.array_equal(test_result, ref_result)
+    assert np.allclose(test_result, ref_result, atol=1e-8)
