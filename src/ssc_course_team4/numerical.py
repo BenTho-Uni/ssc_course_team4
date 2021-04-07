@@ -2,36 +2,31 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import src.ssc_course_team4.io_layer as io
+import ssc_course_team4.io_layer as io
 
 
-def efield_fft(filepath_in, filepath_out, thresh):
+def efield_fft(efield, thresh):
     """Process and plots the electric field data and its Fourier-transformed
     function.
 
     Args:
-        filepath_in (string): The relative file path to the data file.
-        filepath_out (string): The relative file path where the output should
-        be placed.
+        efield (DataFrame): The DataFrame file (time, x, y, z columns).
         thresh (double integer): The threshhold value that the data should be
             checked against.
 
     Returns:
     """
-#   Read in efield data
-    efield = io.read_in_df(filepath_in)
-#   Plot efield per axis
-    io.efield_plot(filepath_out, efield)
 #   Drop those exis below threshhold
     efield_df = pd.DataFrame(efield)
     efield_df = efield_df.drop(efield_df.var()
-                    [efield_df.var() < thresh].index.values, axis=1)
+                               [efield_df.var() < thresh].index.values, axis=1)
 #   Convert to numpy array for easier Fourier
     efield_np = efield_df.to_numpy()
     efield_np = efield_np.T
-#   Plot fft
-    io.efield_fft_plot(filepath_out, efield_np)
-    return
+    efield_np_fft_data = np.fft.rfft(efield_np[1])
+    efield_np_fft_freq = np.fft.rfftfreq(len(efield_np[0]))
+
+    return efield_np_fft_data, efield_np_fft_freq
 
 
 def autocorr(filepath_in):
@@ -54,8 +49,10 @@ def autocorr(filepath_in):
 
     new_overlap = np.delete(overlap, 0, axis=1)
 
-    index_real = [x for x in range(0, dim-1) if x % 2 == 0]
-    index_complex = [x for x in range(0, dim-1) if not x % 2 == 0]
+    dim2 = len(new_overlap[0])
+
+    index_real = [x for x in range(0, dim2) if x % 2 == 0]
+    index_complex = [x for x in range(0, dim2) if not x % 2 == 0]
 
     real_arr = new_overlap[:, index_real]
     complex_arr = new_overlap[:, index_complex]
@@ -70,6 +67,7 @@ def autocorr(filepath_in):
     corr = np.array(corr_)
 
     return time, corr
+
 
 def plot_autocorr(fielpath_in, filepath_out):
     """Builds the autocorrelation function as an array with a separated time

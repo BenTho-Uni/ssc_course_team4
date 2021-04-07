@@ -1,5 +1,6 @@
 # Team 4
 Contributions of Team 4 for the sustainable programming course of the SSC
+Test
 
 ---
 
@@ -19,16 +20,13 @@ You can find the first sketch for the functions
 [here](src/img/function_plan.pdf)
 
 ## Unit 3
-Link to documentation: https://ssc-course-team4.readthedocs.io/en/latest/py-modindex.html
+Link to documentation: https://ssc-course-team4.readthedocs.io/en/latest/
 
 ## ToDo
 - [ ] Decide if better seperation of output functions in numerical.py and
       statistical.py worth
-- [ ] Add inline commentary
-- [ ] find out how to move test_statistical.py to tests folder without broken
-      import call
-- [ ] test_statistical.py: why filecmp not working?
-- [ ] documentation index not working with readthedocs.io
+- [ ] Add more inline commentary
+- [ ] make documentary better
 
 ## Requirements
 These modules are written in python3, and require the following libs:
